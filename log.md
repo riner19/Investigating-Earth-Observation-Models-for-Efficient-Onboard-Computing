@@ -1,7 +1,7 @@
 # Work log
 
 Thesis: Investigating Earth Observation Models for Efficient Onboard Computing
-BME VIK IIT · BMEVIIIAT03 · supervisor Barcza Bende · submission 11 Dec 2026, 12:00
+
 
 ---
 
@@ -71,7 +71,7 @@ Lives in `src/satcd/codec.py`. Never inline these numbers anywhere else.
   x, y, patch, crs (UTM 32610/32611), timestamp, post flag. Not needed for
   the five-fold split.
 
-### WEEK 1 GATE — PASSED
+### WEEK 1 Results
 Scene `012b8863-976c-44e1-a491-9adf19c1cbba_0`, fold 1, 224 centre crop.
 Reconstruction is recognisably the same terrain: ridge lines, drainage
 network and vegetated spurs all preserved. → `results/roundtrip_compare.png`
@@ -93,13 +93,6 @@ network and vegetated spurs all preserved. → `results/roundtrip_compare.png`
    as a differently-shaped ellipse; thin linear features (roads, stream network)
    are smoothed away entirely. Keep this PNG for the discussion chapter.
 
-### Next — Week 2
-- `src/satcd/bands.py` — band constants, input assertions
-- `src/satcd/data.py` — single `prepare()`, CaBuAr Dataset using the fold attr
-- Train FC-Siam-diff (`in_channels=12`) on uncompressed data, then FREEZE
-- Gate: reference F1 in a sane range (~0.5–0.8) for burned area
-- Send Barcza the round-trip figure
----
 
 ## 2026-10-15 — Week 2
 
@@ -283,14 +276,8 @@ trying `pos_weight 1.0` even when already at 1.0. Fired on folds 2 and 4.
 Make it conditional on `args.pos_weight > 1.0`.
 
 ### Week 2 status
-- ✅ `bands.py`, `codec.py`, `data.py`, `detector.py`
-- ✅ data layer verified
-- ✅ reference arm trained and frozen, 5 folds
-- ❌ **Writing: §2.1–2.4, 19 paragraphs, due 21 Oct — 1 drafted**
+- `bands.py`, `codec.py`, `data.py`, `detector.py`
+- data layer verified
+- reference arm trained and frozen, 5 folds
 
-### Next — Week 3
-- `compress.py`: encode → tokens → decode as an arm
-- compressed arm (both dates), asymmetric arm (date 2 only)
-- null A (two decoder seeds), null B (original vs its own reconstruction)
-- **the floor number** — the gate that can reshape the thesis
-- all comparisons paired within fold
+
